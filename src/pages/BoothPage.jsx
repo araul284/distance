@@ -22,13 +22,13 @@ const FILTERS = [
   {
     id: 'cool',
     label: 'cool',
-    css: 'hue-rotate(30deg) saturate(1.4) brightness(1.05)',
+    css: 'hue-rotate(10deg) saturate(1.4) brightness(1.05)',
     preview: 'hue-rotate(30deg) saturate(1.4)',
   },
   {
     id: 'vintage',
     label: 'vintage',
-    css: 'sepia(60%) contrast(1.1) brightness(0.95) saturate(0.8)',
+    css: 'sepia(100%) contrast(1.3) brightness(0.85) saturate(0.9)',
     preview: 'sepia(60%) contrast(1.1)',
   },
 ]
@@ -211,7 +211,7 @@ export default function BoothPage() {
               muted
               playsInline
               className="w-full"
-              style={{ aspectRatio: '3/4', objectFit: 'cover', ...filterStyle, display: 'block' }}
+              style={{ aspectRatio: '3/4', objectFit: 'cover', ...filterStyle, display: 'block', transform: 'scaleX(-1)' }}
             />
           </div>
 
@@ -235,7 +235,7 @@ export default function BoothPage() {
                 autoPlay
                 playsInline
                 className="w-full"
-                style={{ aspectRatio: '3/4', objectFit: 'cover', ...filterStyle, display: 'block' }}
+                style={{ aspectRatio: '3/4', objectFit: 'cover', ...filterStyle, display: 'block', transform: 'scaleX(-1)' }}
               />
             ) : (
               <div

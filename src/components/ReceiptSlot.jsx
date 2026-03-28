@@ -9,12 +9,12 @@ export default function ReceiptSlot({ children, className = '' }) {
     <div className={`w-full flex flex-col items-center ${className}`}>
       {/* The slot bar */}
       <div
-        className="receipt-slot w-5/6 h-10 flex-shrink-0"
-        style={{
-          background: 'linear-gradient(to bottom, #7a1515, #6B1414)',
-          borderRadius: '10px 10px 0 0',
-          boxShadow: '0 4px 16px rgba(0,0,0,0.4), inset 0 1px 3px rgba(255,255,255,0.1)',
-        }}
+        className="receipt-slot w-5/6 h-12 border-10 border-solid border-booth-red rounded-lg relative before:absolute before:top-1/2 before:left-2 before:right-2 before:h-2.5 before:bg-white before:translate-y-1/2 before:rounded-full"
+        // style={{
+        //   background: 'linear-gradient(to bottom, #7a1515, #6B1414)',
+        //   borderRadius: '10px 10px 0 0',
+        //   boxShadow: '0 4px 16px rgba(0,0,0,0.4), inset 0 1px 3px rgba(255,255,255,0.1)',
+        // }}
       />
 
       {/* Paper coming out of the slot */}
@@ -25,7 +25,7 @@ export default function ReceiptSlot({ children, className = '' }) {
         {children}
 
         {/* Scalloped tear edge at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 overflow-hidden" style={{ height: 18 }}>
+        {/* <div className="absolute bottom-0 left-0 right-0 overflow-hidden" style={{ height: 18 }}>
           <svg
             viewBox="0 0 300 18"
             xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export default function ReceiptSlot({ children, className = '' }) {
               <circle key={i} cx={i * 16 + 8} cy={18} r={8} fill="var(--wood-light)" />
             ))}
           </svg>
-        </div>
+        </div> */}
       </div>
     </div>
   )

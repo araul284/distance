@@ -52,22 +52,25 @@ export default function InvitePage() {
       <div className="w-full flex flex-col items-center pb-8">
         {/* Invite Card */}
         <div
-          className={`w-5/6 rounded-2xl p-6 md:p-8 shadow-xl transition-all duration-600 ${
-            visible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          className={`w-[85%] max-w-md rounded-[28px] px-6 py-8 transition-all duration-500 ${
+            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
           style={{
-            background: 'linear-gradient(145deg, #8B1A1A, #6B1414)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)',
+            background: '#8B1A1A',
+            boxShadow: '0 10px 25px rgba(0,0,0,0.25)',
+            minHeight: 220,
           }}
         >
           {/* Heading */}
           <h2
-            className="text-white text-center mb-4"
             style={{
-              fontFamily: "'Allison', cursive",
-              fontSize: 'clamp(28px, 7vw, 40px)',
-              fontWeight: 600,
-              lineHeight: 1.2,
+              fontFamily: "'Allison'",
+              fontSize: 'clamp(32px, 8vw, 44px)',
+              lineHeight: 1.1,
+              letterSpacing: '0.04em',
+              color: '#ffffff',
+              textAlign: 'center',
+              marginBottom: '0.75rem',
             }}
           >
             Invite your partner
@@ -75,66 +78,88 @@ export default function InvitePage() {
 
           {/* Subtitle */}
           <p
-            className="text-white text-center mb-6 opacity-90"
             style={{
-              fontFamily: "'Gravitas One', cursive",
-              fontSize: 'clamp(12px, 3vw, 14px)',
-              lineHeight: 1.6,
+              fontFamily: "'Gravitas One'",
+              fontSize: '12px',
+              lineHeight: 1.5,
+              letterSpacing: '0.06em',
+              color: '#ffffff',
+              opacity: 0.9,
+              textAlign: 'center',
+              marginBottom: '1.5rem',
             }}
           >
-            Send this link to the person you<br />want to take photos with:
+            Send this link to the person you<br />
+            want to take photos with:
           </p>
 
           {/* Link box */}
           <button
             onClick={handleCopy}
-            className="w-full invite-box text-left hover:shadow-md transition-shadow duration-200 group"
+            className="w-full flex items-center justify-between bg-[#EDEDED] rounded-full shadow-inner"
+            style={{ padding: '10px 16px', minHeight: 44, boxSizing: 'border-box' }}
           >
             <span
-              className="flex-1 text-booth-red truncate"
               style={{
-                fontFamily: "'Gravitas One', cursive",
-                fontSize: 'clamp(10px, 2.5vw, 12px)',
-                color: '#8B1A1A',
+                fontFamily: "'Gravitas One'",
+                fontSize: '11px',
+                color: '#9A9A9A',
+                letterSpacing: '0.04em',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                flex: 1,
+                minWidth: 0,
+                textAlign: 'left',
               }}
             >
               {copied ? '✓ Copied!' : inviteLink}
             </span>
-            {/* Chain link icon */}
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#8B1A1A"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="flex-shrink-0 transition-transform duration-200 group-hover:scale-110"
-            >
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-            </svg>
+
+            {/* Icon — fixed size so it never causes reflow */}
+            <span style={{ flexShrink: 0, marginLeft: 8, display: 'flex', alignItems: 'center' }}>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8B1A1A"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+            </span>
           </button>
         </div>
 
         {/* Status area */}
-        <div className="mt-8 flex flex-col items-center slide-in slide-in-delay-2">
-          <div className="w-24 h-px bg-booth-red opacity-50 mb-4" />
+        <div className="mt-12 flex flex-col items-center">
+          <div className="w-40 h-[1px] bg-booth-red opacity-60 mb-4" />
 
           {partnerJoined ? (
             <p
               className="text-booth-red text-center animate-pulse"
-              style={{ fontFamily: "'Gravitas One', cursive", letterSpacing: '0.05em', fontSize: 14 }}
+              style={{
+                fontFamily: "'Gravitas One'",
+                fontSize: '14px',
+                letterSpacing: '0.08em',
+              }}
             >
               ✓ Partner joined! Starting booth...
             </p>
           ) : (
             <p
               className="text-booth-red text-center"
-              style={{ fontFamily: "'Gravitas One', cursive", letterSpacing: '0.05em', fontSize: 14 }}
+              style={{
+                fontFamily: "'Gravitas One'",
+                fontSize: '14px',
+                letterSpacing: '0.08em',
+              }}
             >
-              Waiting for them to join.
+              Waiting for them to join...
             </p>
           )}
 
@@ -143,8 +168,10 @@ export default function InvitePage() {
           {/* Enter alone option */}
           <button
             onClick={handleEnterAlone}
-            className="text-booth-red opacity-60 hover:opacity-100 transition-opacity text-sm underline"
-            style={{ fontFamily: "'Gravitas One', cursive" }}
+            className="text-booth-red opacity-60 hover:opacity-100 transition-opacity text-sm underline rounded-full px-3 py-1"
+            style={{ 
+              fontSize: '11px',
+              fontFamily: "'Gravitas One', cursive" }}
           >
             Or enter the booth alone →
           </button>

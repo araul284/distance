@@ -15,49 +15,53 @@ export default function LandingPage() {
   return (
     <WoodFrame>
       {/* Header text */}
-      <div className="text-center mb-6 slide-in slide-in-delay-1">
-        <div className="w-24 h-px bg-booth-red mx-auto mb-3 opacity-70" />
-        <h2
-          className="text-booth-red text-lg font-display tracking-widest"
-          style={{ 
-            fontFamily: 'Gravitas One',
-            fontSize: 'clamp(15px, 5vw, 10px)', 
-            letterSpacing: '0.15em' 
-          }}
-        >
-          Memories that matter.
-        </h2>
-        <div className="w-24 h-px bg-booth-red mx-auto mt-3 opacity-70" />
-      </div>
+      <div className="text-center mt-10 mb-10">
+  <div className="w-40 h-[1px] bg-booth-red mx-auto mb-4 opacity-60" />
+
+  <h2
+    className="text-booth-red"
+    style={{
+      fontFamily: 'Gravitas One',
+      fontSize: 'clamp(14px, 2vw, 16px)',
+      letterSpacing: '0.18em',
+    }}
+  >
+    Memories that matter.
+  </h2>
+
+  <div className="w-40 h-[1px] bg-booth-red mx-auto mt-4 opacity-60" />
+</div>
 
       {/* Receipt slot with the card */}
       <div
-        className={`w-full flex flex-col items-center transition-all duration-700 ${
-          visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
-        }`}
+        className={`w-full flex flex-col items-center transition-all duration-700 ease-out ${
+          visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-16'
+      }`}
       >
         <ReceiptSlot>
           {/* Card content */}
-          <div className="flex flex-col items-center px-8 pt-10 pb-16">
+          <div className="flex flex-col items-center px-6 pt-12 pb-14 w-[220px]">
             {/* Logo / title */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-6">
               <h1
-                className="text-booth-red leading-tight"
+                className="text-booth-red"
                 style={{
-                  fontFamily: "'Gravitas One', cursive",
-                  fontSize: 'clamp(30px, 8vw, 40px)',
-                  letterSpacing: '0.05em',
+                  fontFamily: "'Gravitas One'",
+                  fontSize: '32px',
+                  letterSpacing: '0.06em',
+                  lineHeight: 1.1,
                 }}
               >
                 Distance
               </h1>
+
               <h1
-                className="text-booth-red"
+                className="text-booth-red -mt-1"
                 style={{
-                  fontFamily: "'Allison', cursive",
-                  fontSize: 'clamp(36px, 10vw, 52px)',
-                  lineHeight: 1.1,
-                  fontWeight: 600,
+                  fontFamily: "'Allison'",
+                  fontSize: '48px',
+                  lineHeight: 1,
+                  fontWeight: 500,
                 }}
               >
                 Booth
@@ -65,19 +69,24 @@ export default function LandingPage() {
             </div>
 
             {/* Divider */}
-            <div className="w-32 h-px bg-booth-red opacity-20 mb-8" />
+            <div className="w-32 h-px bg-booth-red opacity-30 mb-6" />
 
             {/* Enter button */}
             <button
               onClick={() => navigate('/invite')}
-              className="btn-booth px-10 py-3 text-base"
-              style={{ fontSize: '13px', letterSpacing: '0.08em' }}
+              className="bg-booth-red rounded-full px-8 py-2 text-white font-bold transition-all duration-200 hover:brightness-90 active:scale-95"
+              style={{
+                fontSize: '12px',
+                letterSpacing: '0.1em',
+                fontFamily: "'Gravitas One', cursive",
+                color: '#ffffff',
+              }}
             >
               Enter booth
             </button>
 
             {/* Spacer for the scalloped edge */}
-            <div className="h-8" />
+            <div className="h-6" />
           </div>
         </ReceiptSlot>
       </div>

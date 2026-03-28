@@ -7,6 +7,27 @@
   --booth-red-dark: #6B1414;
 }
 
+/* Tailwind doesn't know about CSS variables — define utility classes manually */
+.text-booth-red {
+  color: var(--booth-red) !important;
+}
+ 
+.bg-booth-red {
+  background-color: var(--booth-red) !important;
+}
+ 
+.border-booth-red {
+  border-color: var(--booth-red) !important;
+}
+ 
+/* Wood background used by WoodFrame */
+.wood-bg {
+  background-image: url('/assets/wooden.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -80,7 +101,7 @@ html, #root {
 }
 
 /* Camera lens */
-.camera-lens {
+/* .camera-lens {
   width: 40px;
   height: 40px;
   background: radial-gradient(circle at 35% 35%, #555, #111);
@@ -99,7 +120,7 @@ html, #root {
   height: 30%;
   background: rgba(255,255,255,0.4);
   border-radius: 50%;
-}
+} */
 
 /* Countdown overlay */
 .countdown-number {

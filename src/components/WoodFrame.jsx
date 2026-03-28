@@ -34,7 +34,11 @@ export default function WoodFrame({ children, showCamera = false, className = ''
         {/* Camera lens — only on booth page */}
         {showCamera && (
           <div className="flex flex-col items-center mt-8 mb-2 z-10">
-            <div className="camera-lens" />
+            <img
+              src="/assets/camera.png"
+              alt="camera lens"
+              style={{ width: 56, height: 56, objectFit: 'contain' }}
+            />
           </div>
         )}
 

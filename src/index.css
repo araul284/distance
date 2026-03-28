@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --booth-red: #7E2720;
+  --booth-red-dark: #6B1414;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Allison', cursive;
+  background: url('assets/wooden.jpeg');
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html, #root {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Booth border */
+.booth-border {
+  border: 2px solid var(--booth-red);
+  border-radius: 4px;
+}
+
+/* Receipt / photostrip paper */
+.paper {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15), 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Scalloped bottom edge */
+.scalloped-bottom {
+  position: relative;
+}
+.scalloped-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: white;
+  mask-image: radial-gradient(circle at 50% 0%, transparent 10px, white 10px);
+  -webkit-mask-image: repeating-radial-gradient(circle at 0 -10px, transparent 0, transparent 10px, white 10px, white 0);
+  background: white;
+}
+
+/* Receipt slot */
+.receipt-slot {
+  background: var(--booth-red);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3), inset 0 2px 4px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.receipt-slot::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 0 0 4px 4px;
+}
+
+/* Camera lens */
+.camera-lens {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 35% 35%, #555, #111);
+  border-radius: 50%;
+  border: 3px solid #333;
+  box-shadow: 0 0 0 2px #555, 0 2px 8px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.camera-lens::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 30%;
+  height: 30%;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+}
+
+/* Countdown overlay */
+.countdown-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(80px, 20vw, 160px);
+  color: white;
+  text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 2px 20px rgba(0,0,0,0.5);
+  animation: countdown 1s ease-in-out forwards;
+}
+
+@keyframes countdown {
+  0% { transform: scale(1.8); opacity: 0; }
+  20% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: scale(0.6); opacity: 0; }
+}
+
+/* Flash effect */
+.flash-overlay {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  pointer-events: none;
+  animation: flash 0.4s ease-out forwards;
+}
+
+@keyframes flash {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+/* Print animation */
+@keyframes printDown {
+  0% { 
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-20px);
+  }
+  100% { 
+    clip-path: inset(0 0 0% 0);
+    transform: translateY(0);
+  }
+}
+
+.print-animate {
+  animation: printDown 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Filter thumbnails */
+.filter-thumb {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.filter-thumb:hover {
+  transform: scale(1.05);
+}
+.filter-thumb.active {
+  ring: 2px;
+  ring-color: var(--booth-red);
+  transform: scale(1.08);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--booth-red); border-radius: 2px; }
+
+/* Responsive video frames */
+.video-frame {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Photo strip frames */
+.strip-photo {
+  border: 6px solid white;
+  margin-bottom: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Button styles */
+.btn-booth {
+  background: var(--booth-red);
+  color: white;
+  font-family: 'Gravitas One', cursive;
+  font-size: 14px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(139, 26, 26, 0.4);
+}
+
+.btn-booth:hover {
+  background: var(--booth-red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(139, 26, 26, 0.5);
+}
+
+.btn-booth:active {
+  transform: translateY(0);
+}
+
+/* Invite link box */
+.invite-box {
+  background: white;
+  border-radius: 30px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Watermark */
+.watermark {
+  font-family: 'Allison', cursive;
+  color: var(--booth-red);
+  font-size: 14px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+}
+
+/* Animated dot for recording */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Frame divider line on strip */
+.strip-divider {
+  height: 4px;
+  background: rgba(0,0,0,0.04);
+  margin: 0;
+}
+
+/* Slide in animation */
+@keyframes slideInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.slide-in {
+  animation: slideInUp 0.6s ease forwards;
+}
+
+.slide-in-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.slide-in-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.slide-in-delay-3 { animation-delay: 0.3s; opacity: 0; }
+.slide-in-delay-4 { animation-delay: 0.5s; opacity: 0; }

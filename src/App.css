@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&family=Gravitas+One&family=Instrument+Serif:ital@0;1&family=WindSong:wght@400;500&display=swap');
+
+* { font-family: 'Allison', cursive; }
+
+body {
+  background: url('/af02b7f6e85cbfd0d33345543d1d9590.jpg.jpeg') no-repeat center center fixed;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.landing, .waiting, .booth {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255,255,255,0.8);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transform: rotate(-1deg);
+}
+
+.cameras {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #6A4E42;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+video { border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+.countdown {
+  font-size: 4em;
+  color: #E7B8B8;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+button {
+  background: #A9BFA3;
+  border: none;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.2em;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+button:hover { transform: scale(1.05); }
+
+canvas { 
+  border: 10px solid #F2F2F2;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  margin: 20px 0;
+  transform: rotate(1deg);
+}

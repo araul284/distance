@@ -8,7 +8,7 @@ import React from 'react'
  */
 export default function WoodFrame({ children, showCamera = false, className = '' }) {
   return (
-    <div className="wood-bg min-h-screen w-full flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="wood-bg min-h-screen w-[350px] h-[95%] flex items-center justify-center py-10 relative overflow-hidden">
       {/* Outer glow/shadow */}
       <div
         className={`

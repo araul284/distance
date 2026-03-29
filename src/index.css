@@ -95,8 +95,7 @@ html, #root {
   left: 50%;
   transform: translateX(-50%);
   width: 60%;
-  height: 4px;
-  background: rgba(0,0,0,0.3);
+  height: 120px;
   border-radius: 0 0 4px 4px;
 }
 

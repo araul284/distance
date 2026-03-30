@@ -52,24 +52,25 @@ export default function InvitePage() {
       <div className="w-full flex flex-col items-center pb-8">
         {/* Invite Card */}
         <div
-          className={`w-[85%] max-w-md rounded-[28px] px-6 py-8 transition-all duration-500 ${
+          className={`w-[98%] max-w-md rounded-sm px-6 py-8 transition-all duration-500 ${
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
           style={{
-            background: '#8B1A1A',
-            boxShadow: '0 10px 25px rgba(0,0,0,0.25)',
-            minHeight: 220,
+            borderRadius: '0.75rem',
+            border: '1px solid #7E2720',
+            background: '#7E2720',
+            minHeight: 200,
           }}
         >
           {/* Heading */}
           <h2
             style={{
               fontFamily: "'Allison'",
-              fontSize: 'clamp(32px, 8vw, 44px)',
-              lineHeight: 1.1,
-              letterSpacing: '0.04em',
+              fontSize: '40px',
+              fontWeight: '500',
               color: '#ffffff',
               textAlign: 'center',
+              marginTop: '0.75rem',
               marginBottom: '0.75rem',
             }}
           >
@@ -80,7 +81,7 @@ export default function InvitePage() {
           <p
             style={{
               fontFamily: "'Gravitas One'",
-              fontSize: '12px',
+              fontSize: '11px',
               lineHeight: 1.5,
               letterSpacing: '0.06em',
               color: '#ffffff',
@@ -96,13 +97,21 @@ export default function InvitePage() {
           {/* Link box */}
           <button
             onClick={handleCopy}
-            className="w-full flex items-center justify-between bg-[#EDEDED] rounded-full shadow-inner"
-            style={{ padding: '10px 16px', minHeight: 44, boxSizing: 'border-box' }}
+            className="w-full flex items-center justify-between rounded-sm mx-[8%] my-4 px-4"
+            style={{ 
+              padding: '10px 16px', 
+              minHeight: '44px', 
+              boxSizing: 'border-box',
+              borderRadius: '0.85rem',
+              marginLeft: '8%',
+              marginRight: '8%',
+              maxWidth: '84%',
+            }}
           >
             <span
               style={{
                 fontFamily: "'Gravitas One'",
-                fontSize: '11px',
+                fontSize: '8px',
                 color: '#9A9A9A',
                 letterSpacing: '0.04em',
                 overflow: 'hidden',
@@ -137,7 +146,7 @@ export default function InvitePage() {
 
         {/* Status area */}
         <div className="mt-12 flex flex-col items-center">
-          <div className="w-40 h-[1px] bg-booth-red opacity-60 mb-4" />
+          <div className="w-40 h-[5px] bg-booth-red mb-4" />
 
           {partnerJoined ? (
             <p
@@ -155,15 +164,14 @@ export default function InvitePage() {
               className="text-booth-red text-center"
               style={{
                 fontFamily: "'Gravitas One'",
-                fontSize: '14px',
-                letterSpacing: '0.08em',
+                fontSize: '12px',
               }}
             >
               Waiting for them to join...
             </p>
           )}
 
-          <div className="w-24 h-px bg-booth-red opacity-50 mt-4 mb-6" />
+          <div className="w-24 h-[4px] bg-booth-red mt-4 mb-6" />
 
           {/* Enter alone option */}
           <button

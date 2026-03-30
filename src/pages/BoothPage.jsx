@@ -161,14 +161,14 @@ export default function BoothPage() {
       <div className="flex items-center justify-center gap-8 mt-2 mb-3 w-full">
         <span
           className="text-booth-red"
-          style={{ fontFamily: "'Gravitas One', cursive", fontSize: 'clamp(14px, 4vw, 18px)', letterSpacing: '0.08em' }}
+          style={{ fontFamily: "'Gravitas One', cursive", fontSize: 'clamp(16px, 4vw, 20px)', letterSpacing: '0.08em' }}
         >
           look
         </span>
         <div style={{ width: 40 }} /> {/* camera lens space */}
         <span
           className="text-booth-red"
-          style={{ fontFamily: "'Gravitas One', cursive", fontSize: 'clamp(14px, 4vw, 18px)', letterSpacing: '0.08em' }}
+          style={{ fontFamily: "'Gravitas One', cursive", fontSize: 'clamp(16px, 4vw, 20px)', letterSpacing: '0.08em' }}
         >
           here
         </span>
@@ -179,8 +179,27 @@ export default function BoothPage() {
         className="w-5/6 rounded-xl overflow-hidden shadow-lg relative"
         style={{
           background: '#1a1a1a',
-          border: '6px solid #E8D5BC',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+          border: '8px solid #E8D5BC',
+          borderRadius: '0.75rem',
+          boxShadow: '0 6px 18px rgba(0,0,0,0.35)',
+          
+    //       boxShadow: `
+    //   /* INNER DEPTH (main carve) */
+    //   inset 0 8px 12px rgba(0,0,0,0.55),
+    //   inset 0 -6px 10px rgba(0,0,0,0.45),
+
+    //   /* TOP LIGHT (subtle highlight edge) */
+    //   inset 0 2px 2px rgba(255,255,255,0.15),
+
+    //   /* BOTTOM EDGE SHADOW (adds realism) */
+    //   inset 0 -2px 3px rgba(0,0,0,0.6),
+
+    //   /* SOFT WOOD RIM (your beige edge, blended) */
+    //   inset 0 0 0 6px rgba(232, 213, 188, 0.25),
+
+    //   /* OUTER DROP (panel depth) */
+    //   0 8px 20px rgba(0,0,0,0.35)
+    // `,
         }}
       >
         {/* Countdown overlay */}
@@ -196,11 +215,15 @@ export default function BoothPage() {
         <div className="flex">
           {/* YOU */}
           <div className="flex-1 relative">
-            <div className="absolute top-2 left-2 z-10 flex items-center gap-1">
+            <div className="absolute top-3 left-3 z-10 flex items-center gap-1">
               <div className="rec-dot" />
               <span
                 className="text-white text-xs font-bold"
-                style={{ fontFamily: "'Gravitas One', cursive", letterSpacing: '0.1em', textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}
+                style={{
+                  fontFamily: "'Gravitas One'",
+                  fontSize: '11px',
+                  letterSpacing: '0.12em',
+                }}
               >
                 YOU
               </span>
@@ -216,14 +239,18 @@ export default function BoothPage() {
           </div>
 
           {/* Divider */}
-          <div style={{ width: 2, background: '#E8D5BC', flexShrink: 0 }} />
+          <div style={{ width: 3, background: '#E8D5BC', flexShrink: 0 }} />
 
           {/* THEM */}
           <div className="flex-1 relative">
-            <div className="absolute top-2 right-2 z-10 flex items-center gap-1">
+            <div className="absolute top-3 right-3 z-10 flex items-center gap-1">
               <span
-                className="text-white text-xs font-bold"
-                style={{ fontFamily: "'Gravitas One', cursive", letterSpacing: '0.1em', textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}
+                className="text-#ffffff text-xs font-bold"
+                style={{
+                  fontFamily: "'Gravitas One'",
+                  fontSize: '11px',
+                  letterSpacing: '0.12em',
+                }}
               >
                 THEM
               </span>
@@ -257,8 +284,8 @@ export default function BoothPage() {
       {/* Filter section */}
       <div className="w-5/6 mt-5">
         <p
-          className="text-booth-red mb-3"
-          style={{ fontFamily: "'Allison', cursive", fontSize: 'clamp(18px, 5vw, 24px)' }}
+          className="text-booth-red mb-4"
+          style={{ fontFamily: "'Allison', cursive", fontSize: 'clamp(22px, 6vw, 28px)' }}
         >
           choose a filter
         </p>
@@ -276,8 +303,9 @@ export default function BoothPage() {
               <div
                 className="rounded overflow-hidden shadow-md transition-all duration-200"
                 style={{
-                  width: 'clamp(58px, 18vw, 74px)',
-                  height: 'clamp(44px, 13vw, 56px)',
+                  width: '70px',
+                  height: '52px',
+                  borderRadius: '10px',
                   border: selectedFilter === filter.id ? '2px solid #8B1A1A' : '2px solid transparent',
                   background: '#555',
                   transform: selectedFilter === filter.id ? 'scale(1.05)' : 'scale(1)',
@@ -298,12 +326,12 @@ export default function BoothPage() {
                 className="text-booth-red"
                 style={{
                   fontFamily: "'Gravitas One', cursive",
-                  fontSize: 'clamp(9px, 2.5vw, 11px)',
-                  letterSpacing: '0.05em',
-                  padding: '2px 8px',
+                  fontSize: '10px',
+                  letterSpacing: '0.08em',
+                  padding: '4px 14px',
                   background: selectedFilter === filter.id ? '#8B1A1A' : 'transparent',
                   color: selectedFilter === filter.id ? 'white' : '#8B1A1A',
-                  borderRadius: 20,
+                  borderRadius: '999px',
                   transition: 'all 0.2s ease',
                 }}
               >

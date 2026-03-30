@@ -7,17 +7,17 @@
   --booth-red-dark: #6B1414;
 }
 
-/* Tailwind doesn't know about CSS variables — define utility classes manually */
+/* Custom utility classes */
 .text-booth-red {
-  color: var(--booth-red) !important;
+  color: var(--booth-red);
 }
  
 .bg-booth-red {
-  background-color: var(--booth-red) !important;
+  background-color: var(--booth-red);
 }
  
 .border-booth-red {
-  border-color: var(--booth-red) !important;
+  border-color: var(--booth-red);
 }
  
 /* Wood background used by WoodFrame */
